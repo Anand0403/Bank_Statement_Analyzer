@@ -9,6 +9,7 @@ public class BankStatementAnalyzerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BankStatementAnalyzerApplication.class, args);
 		System.out.println("Anand hiremani");
+		System.out.println("Anand hiremani");
 	}
 
 }
