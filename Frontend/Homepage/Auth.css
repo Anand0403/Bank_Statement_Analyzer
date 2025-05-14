@@ -1,0 +1,238 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  width: 100%;
+  overflow: auto; /* ✅ Scroll enabled */
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+}
+
+/* Background particle container (optional if you use tsparticles) */
+#tsparticles {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -2;
+}
+
+/* Main container */
+.auth-container {
+  background: transparent;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  box-sizing: border-box;
+  position: relative;
+  color: white;
+}
+
+/* Welcome text */
+.welcome-heading {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Subtitle heading */
+.bank-statement-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 10px;
+  width: 85%;
+  line-height: 1.5;
+}
+
+/* Description text */
+.bank-statement-description {
+  font-size: 1rem;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  width: 85%;
+  margin: 0;
+  padding: 2px 0;
+  line-height: 1.5;
+}
+
+/* Auth form box */
+.auth-box {
+  width: 13cm;
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  z-index: 1;
+  margin-top: 2rem;
+}
+
+.auth-box h2 {
+  margin-bottom: 12px;
+}
+
+.auth-box input {
+  width: 90%;
+  margin: 6px 0;
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: 14px;
+  color: black;
+}
+
+.auth-box input::placeholder {
+  color: #999;
+}
+
+.auth-box button {
+  width: 90%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.auth-box button:hover {
+  background-color: #0056b3;
+}
+
+/* Link button for navigation */
+.link-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+}
+
+.forgot-password {
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Forgot Password and Google Sign In buttons side by side */
+.auth-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.secondary-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.forgot-password,
+.google-signin-button {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.forgot-password {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+.forgot-password:hover {
+  background-color: #f0f0f0;
+}
+
+.google-signin-button {
+  background-color: #db4437;
+  color: white;
+  border: none;
+}
+
+.google-signin-button:hover {
+  background-color: #c33d2e;
+}
+
+/* Moving gradient animation background */
+.moving-gradient {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -3;
+  background-image: linear-gradient(45deg, #8e2de2, #5c6bc0, #e64a19, #4db6ac);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Subtle animated circles */
+.subtle-animation-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -4;
+}
+
+.animated-circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.05);
+  opacity: 0;
+  animation: subtleFadeInOut 5s ease-in-out infinite alternate;
+}
+
+.circle-1 { width: 30px; height: 30px; top: 20%; left: 15%; animation-delay: 0s; }
+.circle-2 { width: 40px; height: 40px; top: 50%; left: 60%; animation-delay: 1.5s; }
+.circle-3 { width: 25px; height: 25px; top: 80%; left: 30%; animation-delay: 3s; }
+
+@keyframes subtleFadeInOut {
+  0%   { opacity: 0; transform: scale(0.8); }
+  50%  { opacity: 0.1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.8); }
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .auth-box {
+    width: 90%;
+    height: auto;
+  }
+
+  .bank-statement-title,
+  .bank-statement-description {
+    font-size: 1rem;
+    width: 95%;
+  }
+
+  .welcome-heading {
+    font-size: 1.5rem;
+  }
+} 
