@@ -29,26 +29,22 @@ public class TransactionController {
         return service.getByCategory(category);
     }
 
-    @GetMapping("/savings")
+    @GetMapping("/total-savings")
     public double getTotalSavings() {
         return service.getTotalSavings();
     }
 
-    @GetMapping("/spending")
-    public Map<String, Double> getSpending() {
-        return service.getCategoryWiseSpending();
+    @GetMapping("/total-spending")
+    public double getTotalSpending() {
+        return service.getTotalSpending();
     }
 
-    @GetMapping("/ask")
-    public String askQuestion(@RequestParam String q) {
-        return service.analyzeQuestion(q);
-    }
-    
+
     @GetMapping("/chart-data/spending-by-category")
     public Map<String, Double> getSpendingChartData() {
         return service.getCategoryWiseSpending();
     }
-    
+
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
         try {
@@ -66,15 +62,19 @@ public class TransactionController {
         return service.getMonthlyBalanceTrend(); // You’d create this method
     }
 
-    @DeleteMapping("/reset")
-    public ResponseEntity<String> resetAllTransactions() {
-        service.deleteAll();
-        return ResponseEntity.ok("All transactions and upload history deleted successfully.");
-    }
-
-    @GetMapping("/upload-history")
+    @GetMapping("/upload/history")
     public List<UploadHistory> getUploadHistory() {
         return service.getUploadHistory();
+    }
+
+    @GetMapping("/upload/history/latest")
+    public UploadHistory getLatestUploadedFile() {
+        return service.getLatestUpload();
+    }
+
+    @GetMapping("/chart-data/monthly-savings-spendings")
+    public Map<String, Map<String, Double>> getSavingsAndSpendingsPerMonth() {
+        return service.getMonthlySavingsAndSpending();
     }
 
 

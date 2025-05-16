@@ -26,8 +26,6 @@ public class Transaction {
     private String category;
     private String subCategory;
     private String remarks;
-    
-    private String uploadId;
 
     // Getters and Setters
 
@@ -63,11 +61,5 @@ public class Transaction {
 
     public String getRemarks() { return remarks; }
     public void setRemarks(String remarks) { this.remarks = remarks; }
-    
-	public String getUploadId() {
-		return uploadId;
-	}
-	public void setUploadId(String uploadId) {
-		this.uploadId = uploadId;
-	}
+
 }

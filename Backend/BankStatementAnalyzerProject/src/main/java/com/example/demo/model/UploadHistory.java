@@ -8,13 +8,13 @@ public class UploadHistory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	private String fileName;
-	
+
 	private Date uploadDate;
-	
+
 	public UploadHistory() {}
-	
+
 	public UploadHistory(String fileName, Date uploadDate) {
 		this.fileName = fileName;
 		this.uploadDate = uploadDate;
@@ -39,6 +39,6 @@ public class UploadHistory {
 	public void setUploadDate(Date uploadDate) {
 		this.uploadDate = uploadDate;
 	}
-	
-	
+
+
 }
