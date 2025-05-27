@@ -102,7 +102,7 @@ public class TransactionService {
         // Step 2: Parse and save new transactions
         try (
                 InputStreamReader inputStreamReader = new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8);
-                CSVParser csvParser = new CSVParser(inputStreamReader, CSVFormat.DEFAULT.withFirstRecordAsHeader().withTrim())
+                CSVParser csvParser = new CSVParser(inputStreamReader, CSVFormat.DEFAULT);
         ) {
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yy", Locale.ENGLISH);
 
@@ -185,7 +185,6 @@ public class TransactionService {
     }
 
     public double getTotalSpending() {
-        // TODO Auto-generated method stub
         List<Transaction> transactions = repository.findAll();
         return transactions.stream()
                 .mapToDouble(t -> t.getWithdrawalAmount() != null ? t.getWithdrawalAmount() : 0.0)
