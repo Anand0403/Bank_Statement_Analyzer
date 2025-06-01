@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -31,6 +32,16 @@ public class TransactionService {
 
     public List<Transaction> getByCategory(String category) {
         return repository.findByCategory(category);
+    }
+
+    private Date parseDateSafe(String value) throws Exception {
+        String[] patterns = {"dd-MMM-yy", "yyyy-MM-dd", "dd/MM/yyyy"}; // Add more as needed
+        for (String pattern : patterns) {
+            try {
+                return new SimpleDateFormat(pattern, Locale.ENGLISH).parse(value);
+            } catch (Exception ignored) {}
+        }
+        throw new ParseException("Unparseable date: \"" + value + "\"", 0);
     }
 
     public double getTotalSavings() {
@@ -96,28 +107,33 @@ public class TransactionService {
     }
 
     public void saveTransactionsFromCsv(MultipartFile file) throws Exception {
-        // Step 1: Delete previous transactions
-        repository.deleteAll();
+    // Step 1: Delete previous transactions
+    repository.deleteAll();
 
-        // Step 2: Parse and save new transactions
-        try (
-                InputStreamReader inputStreamReader = new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8);
-                CSVParser csvParser = new CSVParser(inputStreamReader, CSVFormat.DEFAULT);
-        ) {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yy", Locale.ENGLISH);
+    // Step 2: Parse and save new transactions
+    try (
+        InputStreamReader inputStreamReader = new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8);
+        CSVParser csvParser = new CSVParser(inputStreamReader, CSVFormat.DEFAULT.withFirstRecordAsHeader());
+    ) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yy", Locale.ENGLISH);
 
-            // Fix BOM in headers if present (e.g., "﻿date" -> "date")
-            Map<String, String> headerFixMap = new HashMap<>();
-            for (String header : csvParser.getHeaderMap().keySet()) {
-                String cleanHeader = header.replace("\uFEFF", ""); // Remove BOM
-                headerFixMap.put(cleanHeader, header); // Map "date" -> "﻿date" if needed
-            }
+        // Fix BOM in headers if present (e.g., "﻿date" -> "date")
+        Map<String, String> headerFixMap = new HashMap<>();
+        Map<String, Integer> headerMap = csvParser.getHeaderMap();
+        if (headerMap == null) {
+            throw new IllegalArgumentException("CSV file does not contain headers. Please include a header row.");
+        }
 
-            for (CSVRecord record : csvParser) {
-                Transaction transaction = new Transaction();
+        for (String header : headerMap.keySet()) {
+            String cleanHeader = header.replace("\uFEFF", ""); // Remove BOM
+            headerFixMap.put(cleanHeader, header); // Map "date" -> "﻿date" if needed
+        }
 
-                // Use safe header lookup
-                transaction.setDate(sdf.parse(record.get(headerFixMap.get("date"))));
+        for (CSVRecord record : csvParser) {
+            Transaction transaction = new Transaction();
+
+            try {
+                transaction.setDate(parseDateSafe(record.get(headerFixMap.get("date"))));
                 transaction.setTransactionDescription(record.get(headerFixMap.get("transactionDescription")));
                 transaction.setChqRefNo(record.get(headerFixMap.get("chqRefNo")));
                 transaction.setValueDate(sdf.parse(record.get(headerFixMap.get("valueDate"))));
@@ -127,15 +143,21 @@ public class TransactionService {
                 transaction.setCategory(record.get(headerFixMap.get("category")));
                 transaction.setSubCategory(record.get(headerFixMap.get("subCategory")));
                 transaction.setRemarks(record.get(headerFixMap.get("remarks")));
-
                 repository.save(transaction);
+            } catch (Exception e) {
+                System.err.println("Skipping record due to error: " + e.getMessage());
             }
-
-            // Step 3: Save upload history
-            UploadHistory history = new UploadHistory(file.getOriginalFilename(), new Date());
-            uploadHistoryRepository.save(history);
         }
+
+        // Step 3: Save upload history
+        UploadHistory history = new UploadHistory(file.getOriginalFilename(), new Date());
+        uploadHistoryRepository.save(history);
+
+    } catch (Exception e) {
+        throw new RuntimeException("Error processing CSV file: " + e.getMessage(), e);
     }
+}
+
 
     public List<UploadHistory> getUploadHistory() {
         return uploadHistoryRepository.findAll();

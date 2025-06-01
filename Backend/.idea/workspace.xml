@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2108992d-243b-45e8-85d8-5f2a83f6ab9a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/BankStatementAnalyzerProject/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/BankStatementAnalyzerProject/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankStatementAnalyzerProject/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/BankStatementAnalyzerProject/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankStatementAnalyzerProject/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BankStatementAnalyzerProject/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankStatementAnalyzerProject/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BankStatementAnalyzerProject/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/java/com/example/demo/BankAnalyzerProjectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/java/com/example/demo/BankAnalyzerProjectApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/java/com/example/demo/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/java/com/example/demo/controller/ChatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/java/com/example/demo/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/java/com/example/demo/controller/TransactionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/java/com/example/demo/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/java/com/example/demo/model/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/java/com/example/demo/model/UploadHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/java/com/example/demo/model/UploadHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/java/com/example/demo/repository/TransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/java/com/example/demo/repository/TransactionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/java/com/example/demo/repository/UploadHistoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/java/com/example/demo/repository/UploadHistoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/java/com/example/demo/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/java/com/example/demo/service/TransactionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/test/java/com/example/demo/BankStatementAnalyzerProjectApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/BankStatementAnalyzerProject/src/test/java/com/example/demo/BankStatementAnalyzerProjectApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/Homepage/Footer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/Homepage/HomeBody.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/Homepage/SimpleAppBar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/Homepage/signin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/Homepage/signup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/index.html" beforeDir="false" />
-    </list>
+    <list default="true" id="2108992d-243b-45e8-85d8-5f2a83f6ab9a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,23 +10,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2xO5ew9rIbWrMoLo622EooD6BTj" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/anand/OneDrive/Desktop/Bank Statement Analyzer Project/Backend/BankStatementAnalyzerProject"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/anand/OneDrive/Desktop/Bank Statement Analyzer Project/Backend/BankStatementAnalyzerProject&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
